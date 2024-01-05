@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Jammming</h1>
+        <h1>Ja<span style={{color: "#ffccff"}}>mmm</span>ing</h1>
       </header>
       <main>
         <SearchBar />

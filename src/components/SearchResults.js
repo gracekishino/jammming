@@ -3,7 +3,7 @@ import Tracklist from './Tracklist';
 function SearchResults() {
     return (
         <div>
-            <h2>Results</h2>
+            <h2>Songs</h2>
             <Tracklist />
         </div>
     );

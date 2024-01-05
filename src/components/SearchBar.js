@@ -3,7 +3,7 @@ function SearchBar() {
         <div>
             <form>
                 <div>
-                    <input type="text" name="searchText" id="searchText" />
+                    <input type="text" name="searchText" id="searchText" placeholder="Search for songs" />
                 </div>
                 <div>
                     <button>Search</button>

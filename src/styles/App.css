@@ -1,10 +1,15 @@
 html {
-  background-color: #333;
-  color: #fff;
+  background-color: #000;
+  opacity: 0.9;
 }
 
 .App {
   text-align: center;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  color: white;
+}
+
+div {
 }
 
 .row {
@@ -15,3 +20,23 @@ html {
   flex: 50%;
 }
 
+input {
+  background-color: #242424;
+  border: 0;
+  border-radius: 100px;
+  color: #fff!important;
+  height: 44px;
+  padding: 6px 30px;
+  margin: 10px;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+button {
+  background-color: #ffccff;
+  color: black;
+  border: 0;
+  border-radius: 100px;
+  height: 44px;
+  padding: 6px 30px;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
