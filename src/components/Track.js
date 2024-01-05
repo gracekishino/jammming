@@ -5,7 +5,7 @@ function Track() {
                 <div>Song Title</div>
                 <div>Artist</div>
             </div>
-            <div className="column"><a>+</a></div>
+            <div className="column"><button>+</button></div>
         </div>
     );
 };
