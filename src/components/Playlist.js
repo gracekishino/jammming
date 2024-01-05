@@ -3,11 +3,11 @@ import Tracklist from './Tracklist';
 
 function Playlist() {
     return (
-        <div>
-            <h2>Playlist</h2>
+        <form>
+            <input type="text" placeholder='New Playlist Name' />
             <Tracklist />
             <button>Save to Spotify</button>
-        </div>
+        </form>
     );
 };
 

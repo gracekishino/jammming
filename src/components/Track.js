@@ -1,9 +1,11 @@
 function Track() {
     return (
-            <div>
-            <div>Song Title</div>
-            <div>Artist</div>
-            <button>+</button>
+        <div className="row">
+            <div className="column">
+                <div>Song Title</div>
+                <div>Artist</div>
+            </div>
+            <div className="column"><a>+</a></div>
         </div>
     );
 };

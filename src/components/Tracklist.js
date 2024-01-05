@@ -2,11 +2,11 @@ import Track from './Track';
 
 function Tracklist() {
     return (
-        <div>
+        <>
             <Track />
             <Track />
             <Track />
-        </div>
+        </>
     );
 };
 
