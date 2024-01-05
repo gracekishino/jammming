@@ -3,7 +3,7 @@ function Track() {
         <div className="row">
             <div className="column">
                 <div>Song Title</div>
-                <div>Artist</div>
+                <div>Album / Artist</div>
             </div>
             <div className="column"><button>+</button></div>
         </div>
