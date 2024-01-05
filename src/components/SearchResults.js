@@ -4,7 +4,7 @@ function SearchResults() {
     return (
         <div>
             <h2>Songs</h2>
-            <Tracklist />
+            <Tracklist action="+" />
         </div>
     );
 };

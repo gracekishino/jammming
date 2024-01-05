@@ -5,7 +5,7 @@ function Playlist() {
     return (
         <form>
             <input type="text" placeholder='New Playlist Name' />
-            <Tracklist />
+            <Tracklist action="-" />
             <button>Save to Spotify</button>
         </form>
     );

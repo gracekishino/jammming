@@ -1,14 +1,14 @@
 import styles from '../styles/Track.module.css'; 
 
-function Track() {
+function Track({ action }) {
     return (
         <div className="row">
             <div className="column">
-                <div>Song Title / Album</div>
-                <div>Artist</div>
+                <div>Song Title </div>
+                <div>Artist / Album</div>
             </div>
             <div className="column">
-                <button className={styles.add}>+</button>
+                <button className={styles.action}>{action}</button>
             </div>
         </div>
     );

@@ -1,11 +1,11 @@
 import Track from './Track';
 
-function Tracklist() {
+function Tracklist({ action}) {
     return (
         <>
-            <Track />
-            <Track />
-            <Track />
+            <Track action={action} />
+            <Track action={action} />
+            <Track action={action} />
         </>
     );
 };
