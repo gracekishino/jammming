@@ -20,6 +20,9 @@ function App() {
           </div>
         </div>
       </main>
+      <footer>
+        Created by <a href="https://github.com/gracekishino" target="blank">Grace Kishino</a>
+      </footer>
     </div>
   );
 }

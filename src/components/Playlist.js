@@ -5,7 +5,7 @@ function Playlist() {
     return (
         <form>
             <h2>Make Spotify Playlist</h2>
-            <input type="text" placeholder='New Playlist Name' className={styles.playlistName} />
+            <input type="text" placeholder='Playlist Name' className={styles.playlistName} />
             <button>Save</button>
             <Tracklist action="-" />
         </form>

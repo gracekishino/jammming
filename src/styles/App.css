@@ -1,6 +1,12 @@
 html {
   background-color: #000;
-  opacity: 0.9;
+}
+
+main {
+  background: url('https://twigtea.files.wordpress.com/2022/03/img_1602.jpg') no-repeat center;
+  background-size: cover;
+  padding-top:25px;
+  padding-bottom:50px;
 }
 
 .App {
@@ -21,7 +27,7 @@ html {
   flex: 1 1 40%;
   background-color: #111;
   padding: 25px;
-  min-width: 270px;
+  min-width: 270px;  
 }
 
 button {
@@ -32,5 +38,14 @@ button {
   height: 44px;
   padding: 6px 30px;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+footer a {
+  color: #ffccff;
+  text-decoration: none;
+}
+
+footer {
+  padding: 25px;
 }
 
