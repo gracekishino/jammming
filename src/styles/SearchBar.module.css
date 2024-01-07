@@ -1,11 +1,10 @@
-.playlistName {
-    width: 60%;
-    border-radius: 0;
+.searchText {
     background-color: #242424;
     border: 0;
+    border-radius: 100px;
     color: #fff!important;
     height: 44px;
     padding: 6px 30px;
-    margin-bottom: 5px;
+    margin: 10px;
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
+  }

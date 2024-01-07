@@ -6,3 +6,20 @@
     font-size: 16px; /* Set a font size */
     cursor: pointer; /* Mouse pointer on hover */
 }
+
+.song { 
+    display: flex;
+    background-color: #000; 
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.songInfo {
+    flex: 70%;
+    text-align: left;
+}
+
+.songAction {
+  flex: 30%;
+  text-align: right;
+}
