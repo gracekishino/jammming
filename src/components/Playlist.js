@@ -5,8 +5,8 @@ function Playlist() {
     return (
         <form>
             <input type="text" placeholder='New Playlist Name' className={styles.playlistName} />
-            <Tracklist action="-" />
             <button>Save to Spotify</button>
+            <Tracklist action="-" />
         </form>
     );
 };
