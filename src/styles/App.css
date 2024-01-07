@@ -1,5 +1,6 @@
 html {
   background-color: #000;
+  opacity: 0.9;
 }
 
 main {
@@ -38,6 +39,7 @@ button {
   height: 44px;
   padding: 6px 30px;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-weight: bold;
 }
 
 footer a {
