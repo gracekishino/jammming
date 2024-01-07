@@ -11,13 +11,15 @@ html {
 
 .row {
   display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  margin: 25px;
 }
 
 .column {
   flex: 50%;
   background-color: #111;
   padding: 25px;
-  margin: 25px;
 }
 
 button {
