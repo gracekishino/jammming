@@ -4,7 +4,7 @@ html {
 }
 
 main {
-  background: url('https://twigtea.files.wordpress.com/2024/01/m51.png') center;
+  background: url('https://twigtea.files.wordpress.com/2022/03/img_1602.jpg') center;
   background-size: cover;
   padding-top:25px;
   padding-bottom:50px;
@@ -40,6 +40,11 @@ button {
   padding: 6px 30px;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(222, 178, 246);
 }
 
 footer a {
