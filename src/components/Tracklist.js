@@ -1,11 +1,11 @@
 import Track from './Track';
 
-function Tracklist({ action}) {
+function Tracklist({ action, tracks }) {
     return (
         <>
-            <Track action={action} />
-            <Track action={action} />
-            <Track action={action} />
+            {tracks?.map((track) => (
+                <Track action={action} track={track} />
+            ))}
         </>
     );
 };
