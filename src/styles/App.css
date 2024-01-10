@@ -28,7 +28,6 @@ main {
   flex: 1 1 40%;
   background-color: #111;
   padding: 25px;
-  min-width: 310px;  
 }
 
 button {
@@ -41,6 +40,8 @@ button {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   font-weight: bold;
   cursor: pointer;
+
+  margin-bottom: 10px;
 }
 
 button:hover {
