@@ -5,7 +5,7 @@ function Track({ action, track }) {
         <div className={styles.song}>
             <div className={styles.songInfo}>
                 <div><b>{track.name}</b></div>
-                <div>{track.artists?.name} / {track.album?.name}</div>
+                <div>{track.artists?.name}</div>
             </div>
             <div className={styles.songAction}>
                 <button className={styles.action}>{action}</button>
