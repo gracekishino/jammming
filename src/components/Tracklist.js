@@ -3,8 +3,8 @@ import Track from './Track';
 function Tracklist({ action, tracks }) {
     return (
         <>
-            {tracks?.map((track) => (
-                <Track action={action} track={track} />
+            {tracks?.map((track,key) => (
+                <Track action={action} track={track} key={key} />
             ))}
         </>
     );
