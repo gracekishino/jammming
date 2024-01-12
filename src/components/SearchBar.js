@@ -10,7 +10,9 @@ function SearchBar({setSearchWords}) {
   const handleSubmit = (event) => {
     event.preventDefault();
     let searchArray = text?.split(" ").filter(i => i);
-    text && searchArray.unshift(text);
+    if (text.indexOf(' ') >= 0) {
+        text && searchArray.unshift(text);
+    }
     setSearchWords(searchArray);
   }
 

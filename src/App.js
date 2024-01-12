@@ -64,6 +64,7 @@ function App() {
         <SearchBar setSearchWords={setSearchWords} />
         <div className="row">
           <div className="column">
+            <div>{searchWords.map(word => `"${word}" `)}</div>
             <SearchResults tracks={searchTracks} />
           </div>
           <div className="column">
