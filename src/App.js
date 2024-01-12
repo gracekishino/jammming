@@ -5,26 +5,7 @@ import './styles/App.css';
 import { useState } from 'react';
 
 function App() {
-  const [playlist, setPlaylist] = useState([
-    {
-      id: "12345",
-      name: "Let it Be",
-      album: {name: "Let it Be"},
-      artists: {name: "Beatles"},
-    },
-    {
-      id: "12356",
-      name: "Waterloo Sunset",
-      album: {name: "Something Else"},
-      artists: {name: "The Kinks"},
-    },
-    {
-      id: "1234567",
-      name: "(Sittin’ On) the Dock of the Bay",
-      album: {name: "Let it Be"},
-      artists: {name: "Otis Redding"},
-    }
-  ]);
+  const [playlist, setPlaylist] = useState([]);
   
   const searchTracks = [
     {
@@ -50,6 +31,24 @@ function App() {
       name: "Chill",
       album: {name: "It's a Lofi"},
       artists: {name: "Domknowz"},
+    },
+    {
+      id: "12345",
+      name: "Let it Be",
+      album: {name: "Let it Be"},
+      artists: {name: "Beatles"},
+    },
+    {
+      id: "12356",
+      name: "Waterloo Sunset",
+      album: {name: "Something Else"},
+      artists: {name: "The Kinks"},
+    },
+    {
+      id: "1234567",
+      name: "(Sittin’ On) the Dock of the Bay",
+      album: {name: "Let it Be"},
+      artists: {name: "Otis Redding"},
     }
   ];
 
