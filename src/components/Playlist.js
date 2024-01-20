@@ -2,7 +2,7 @@ import Tracklist from './Tracklist';
 import styles from '../styles/Playlist.module.css'; 
 import { useState } from 'react';
 
-function Playlist({ playlist, setPlaylist, removeTrack }) {
+function Playlist({ playlist, removeTrack }) {
 
     const [text, setText] = useState('');
     const handleTextChange = (event) => {
@@ -11,7 +11,7 @@ function Playlist({ playlist, setPlaylist, removeTrack }) {
     const handleSubmit = (event) => {
       event.preventDefault();
       // save new playlist name and tracks to playlist object
-      setPlaylist(playlist)
+      // setPlaylist(playlist)
     }
 
     return (

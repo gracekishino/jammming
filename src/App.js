@@ -2,7 +2,7 @@ import SearchBar from './components/SearchBar';
 import SearchResults from './components/SearchResults';
 import Playlist from './components/Playlist';
 import './styles/App.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function App() {
   
@@ -81,7 +81,7 @@ function App() {
             <SearchResults tracks={tracks} addTrack={addTrack} />
           </div>
           <div className="column">
-            <Playlist playlist={playlist} setPlaylist={setPlaylist} removeTrack={removeTrack} />
+            <Playlist playlist={playlist} removeTrack={removeTrack} />
           </div>
         </div>
       </main>
