@@ -1,10 +1,10 @@
 import Track from './Track';
 
-function Tracklist({ action, tracks }) {
+function Tracklist({ addTrack, removeTrack, icon, tracks }) {
     return (
         <>
             {tracks?.map((track,key) => (
-                <Track action={action} track={track} key={key} />
+                <Track removeTrack={removeTrack} addTrack={addTrack} icon={icon} track={track} key={key} />
             ))}
         </>
     );

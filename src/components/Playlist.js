@@ -2,7 +2,7 @@ import Tracklist from './Tracklist';
 import styles from '../styles/Playlist.module.css'; 
 import { useState } from 'react';
 
-function Playlist({ playlist, setPlaylist }) {
+function Playlist({ playlist, setPlaylist, removeTrack }) {
 
     const [text, setText] = useState('');
     const handleTextChange = (event) => {
@@ -24,7 +24,7 @@ function Playlist({ playlist, setPlaylist }) {
                 onChange={handleTextChange}
                 value={text} />
             <button>Save</button>
-            <Tracklist action="-" tracks={playlist} />
+            <Tracklist icon="-" tracks={playlist} removeTrack={removeTrack} />
         </form>
     );
 };

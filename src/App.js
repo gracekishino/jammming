@@ -2,12 +2,11 @@ import SearchBar from './components/SearchBar';
 import SearchResults from './components/SearchResults';
 import Playlist from './components/Playlist';
 import './styles/App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
-  const [playlist, setPlaylist] = useState([]);
   
-  const searchTracks = [
+  const tracks = [
     {
       id: "1",
       name: "Lofi",
@@ -53,7 +52,21 @@ function App() {
   ];
 
 
+  const [playlist, setPlaylist] = useState([]);
   const [searchWords, setSearchWords] = useState([]);
+  // TODO setup search results 
+  // const [searchResults, setSearchResults] = useState(tracks);
+  
+  const addTrack = (track) => {
+    // TODO only add if track not in playlist
+    if (!playlist.find(t => t.id === track.id)) {
+      setPlaylist((playlist) => [track, ...playlist]);
+    }
+  }
+
+  const removeTrack = (trackIdToRemove) => {
+    setPlaylist((playlist) => playlist.filter((track) => track.id !== trackIdToRemove));
+  }
 
   return (
     <div className="App">
@@ -65,10 +78,10 @@ function App() {
         <div className="row">
           <div className="column">
             <div>{searchWords.map(word => `"${word}" `)}</div>
-            <SearchResults tracks={searchTracks} />
+            <SearchResults tracks={tracks} addTrack={addTrack} />
           </div>
           <div className="column">
-            <Playlist playlist={playlist} setPlaylist={setPlaylist} />
+            <Playlist playlist={playlist} setPlaylist={setPlaylist} removeTrack={removeTrack} />
           </div>
         </div>
       </main>
