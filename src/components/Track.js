@@ -1,5 +1,4 @@
 import styles from '../styles/Track.module.css'; 
-import Playlist from './Playlist';
 
 function Track({ icon, track, addTrack, removeTrack }) {
     const handleClick = () => {
