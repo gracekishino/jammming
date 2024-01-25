@@ -6,7 +6,7 @@ html {
 main {
   background: url('https://twigtea.files.wordpress.com/2022/03/img_1602.jpg') center;
   background-size: cover;
-  padding-top:25px;
+  padding-top:2rem;
   padding-bottom:50px;
 }
 
@@ -19,15 +19,15 @@ main {
 .row {
   display: flex;
   justify-content: space-between;
-  gap: 25px;
-  margin: 25px;
+  gap: 3rem;
+  margin: 3rem;
   flex-wrap: wrap;
 }
 
 .column {
   flex: 1 1 40%;
   background-color: #111;
-  padding: 25px;
+  padding: 2rem;
 }
 
 button {
@@ -53,6 +53,6 @@ footer a {
 }
 
 footer {
-  padding: 25px;
+  padding: 2rem;
 }
 
