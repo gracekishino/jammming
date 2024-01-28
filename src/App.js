@@ -1,7 +1,7 @@
 import SearchBar from './components/SearchBar';
 import SearchResults from './components/SearchResults';
 import Playlist from './components/Playlist';
-import { loginWithSpotifyClick, logoutClick, userName, images, getTracks } from './components/SpotifyApiAccess';
+import { loginWithSpotifyClick, logoutClick, userName, images, getTracks, createPlaylist, addTracksToPlaylist } from './components/SpotifyApiAccess';
 import './styles/App.css';
 import { useState } from 'react';
 
@@ -9,7 +9,6 @@ function App() {
 
   const [tracks, setTracks] = useState([]);
   const [playlist, setPlaylist] = useState([]);
-  const [playlistName, setPlaylistName] = useState('');
   
   const addTrack = (track) => {
     // TODO only add if track not in playlist
@@ -39,8 +38,12 @@ function App() {
             <SearchResults tracks={tracks} addTrack={addTrack} />
           </div>
           <div className="column">
-            <div>{playlistName}</div>
-            <Playlist playlist={playlist} setPlaylistName={setPlaylistName} removeTrack={removeTrack} />
+            <Playlist 
+              playlist={playlist} 
+              setPlaylist={setPlaylist} 
+              createPlaylist={createPlaylist} 
+              removeTrack={removeTrack} 
+              addTracksToPlaylist={addTracksToPlaylist} />
           </div>
         </div>
       </main>

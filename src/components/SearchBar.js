@@ -9,10 +9,13 @@ function SearchBar({ getTracks, setTracks }) {
   }
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const jsonResponse = await getTracks(text);
-    const searchResults = await jsonResponse.tracks.items;
-    setTracks(searchResults);
-    //alert(JSON.stringify(searchResults);
+    
+    // only search if text has been entered
+    if (text.length > 0) {
+      const jsonResponse = await getTracks(text);
+      const searchResults = await jsonResponse.tracks.items;
+      setTracks(searchResults);
+    }
   }
 
     return (

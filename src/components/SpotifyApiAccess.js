@@ -1,11 +1,12 @@
 const clientId = '0a704d21dc6c41429775feb53272a67c'; // your clientId
-const redirectUrl = 'https://jammmmmming.netlify.app/';        // your redirect URL - must be localhost URL and/or HTTPS
-// const redirectUrl = 'http://localhost:3000';        // your redirect URL - must be localhost URL and/or HTTPS
+// const redirectUrl = 'https://jammmmmming.netlify.app/';        // your redirect URL - must be localhost URL and/or HTTPS
+const redirectUrl = 'http://localhost:3000';        // your redirect URL - must be localhost URL and/or HTTPS
 
 const authorizationEndpoint = "https://accounts.spotify.com/authorize";
 const tokenEndpoint = "https://accounts.spotify.com/api/token";
 const scope = 'user-read-private playlist-modify-private playlist-modify-public';
 let userName = '';
+let userId = '';
 let images = [];
 
 // Data structure that manages the current active token, caching it in localStorage
@@ -48,13 +49,14 @@ if (code) {
 if (currentToken.access_token) {
   const userData = await getUserData();
   userName = userData.display_name;
+  userId = userData.id;
   images = userData.images;
 }
 
 // Otherwise we're not logged in
-if (!currentToken.access_token) {
+// if (!currentToken.access_token) {
 
-}
+// }
 
 async function redirectToSpotifyAuthorize() {
   const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -141,6 +143,29 @@ async function getTracks(query) {
     return await response.json();
 }
 
+async function createPlaylist(playlistName) {
+    const response = await fetch("https://api.spotify.com/v1/users/"+userId+"/playlists", {
+        method: 'POST',
+        headers: { 'Authorization': 'Bearer ' + currentToken.access_token },
+        body: JSON.stringify({
+            name: playlistName,
+            description: 'Created with the Jammming App!',
+            public: true
+        }),
+    });
+
+    return await response.json();
+}
+
+async function addTracksToPlaylist(playlistId,uris) {
+    const response = await fetch("https://api.spotify.com/v1/playlists/"+playlistId+"/tracks?uris="+uris, {
+        method: 'POST',
+        headers: { 'Authorization': 'Bearer ' + currentToken.access_token },
+    });
+
+    return await response.json();
+}
+
 // Click handlers
 async function loginWithSpotifyClick() {
     await redirectToSpotifyAuthorize();
@@ -155,4 +180,4 @@ async function logoutClick() {
 //   const token = await refreshToken();
 //   currentToken.save(token);
 // }
-export { loginWithSpotifyClick, logoutClick, userName, images, getTracks };
+export { loginWithSpotifyClick, logoutClick, userName, images, getTracks, createPlaylist, addTracksToPlaylist };
