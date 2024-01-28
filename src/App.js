@@ -1,7 +1,7 @@
 import SearchBar from './components/SearchBar';
 import SearchResults from './components/SearchResults';
 import Playlist from './components/Playlist';
-import { loginWithSpotifyClick, logoutClick, userName, getTracks } from './components/SpotifyApiAccess';
+import { loginWithSpotifyClick, logoutClick, userName, images, getTracks } from './components/SpotifyApiAccess';
 import './styles/App.css';
 import { useState } from 'react';
 
@@ -30,6 +30,7 @@ function App() {
       <main>
         
         <button id="login-button" onClick={userName ? logoutClick : loginWithSpotifyClick}>
+          {images ? <img className="user-icon" src={images.length > 0 ? images[0].url : ""} alt={userName} /> : "" }
           {userName ? userName + " Logout" : "Login with Spotify"}
         </button>
         <SearchBar getTracks={getTracks} setTracks={setTracks} />
