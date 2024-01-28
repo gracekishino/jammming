@@ -1,7 +1,7 @@
 import SearchBar from './components/SearchBar';
 import SearchResults from './components/SearchResults';
 import Playlist from './components/Playlist';
-import { loginWithSpotifyClick, logoutClick, userName, images, getTracks } from './components/SpotifyApiAccess';
+import { loginWithSpotifyClick, logoutClick, userName, getTracks } from './components/SpotifyApiAccess';
 import './styles/App.css';
 import { useState } from 'react';
 
