@@ -1,10 +1,12 @@
 const clientId = '0a704d21dc6c41429775feb53272a67c'; // your clientId
-const redirectUrl = 'https://jammmmmming.netlify.app/';        // your redirect URL - must be localhost URL and/or HTTPS
+// const redirectUrl = 'https://jammmmmming.netlify.app/';        // your redirect URL - must be localhost URL and/or HTTPS
+const redirectUrl = 'http://localhost:3000';        // your redirect URL - must be localhost URL and/or HTTPS
 
 const authorizationEndpoint = "https://accounts.spotify.com/authorize";
 const tokenEndpoint = "https://accounts.spotify.com/api/token";
 const scope = 'user-read-private playlist-modify-private playlist-modify-public';
 let userName = '';
+let images = [];
 
 // Data structure that manages the current active token, caching it in localStorage
 const currentToken = {
@@ -46,6 +48,7 @@ if (code) {
 if (currentToken.access_token) {
   const userData = await getUserData();
   userName = userData.display_name;
+  images = userData.images;
 }
 
 // Otherwise we're not logged in
@@ -129,6 +132,15 @@ async function getUserData() {
   return await response.json();
 }
 
+async function getTracks(query) {
+    const response = await fetch("https://api.spotify.com/v1/search?type=track&q="+query, {
+        method: 'GET',
+        headers: { 'Authorization': 'Bearer ' + currentToken.access_token },
+    });
+
+    return await response.json();
+}
+
 // Click handlers
 async function loginWithSpotifyClick() {
     await redirectToSpotifyAuthorize();
@@ -143,4 +155,4 @@ async function logoutClick() {
 //   const token = await refreshToken();
 //   currentToken.save(token);
 // }
-export { loginWithSpotifyClick, logoutClick, userName };
+export { loginWithSpotifyClick, logoutClick, userName, images, getTracks };

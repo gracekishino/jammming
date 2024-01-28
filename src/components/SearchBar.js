@@ -1,19 +1,18 @@
 import styles from '../styles/SearchBar.module.css'; 
 import { useState } from 'react';
 
-function SearchBar({setSearchWords}) {
+function SearchBar({ getTracks, setTracks }) {
 
   const [text, setText] = useState('');
   const handleTextChange = (event) => {
     setText(event.target.value);
   }
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    let searchArray = text?.split(" ").filter(i => i);
-    if (text.indexOf(' ') >= 0) {
-        text && searchArray.unshift(text);
-    }
-    setSearchWords(searchArray);
+    const jsonResponse = await getTracks(text);
+    const searchResults = await jsonResponse.tracks.items;
+    setTracks(searchResults);
+    //alert(JSON.stringify(searchResults);
   }
 
     return (
