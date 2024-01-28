@@ -1,11 +1,12 @@
 import SearchBar from './components/SearchBar';
 import SearchResults from './components/SearchResults';
 import Playlist from './components/Playlist';
+import { currentToken, loginWithSpotifyClick, logoutClick, userName } from './components/SpotifyApiAccess';
 import './styles/App.css';
 import { useState } from 'react';
 
 function App() {
-  
+
   const tracks = [
     {
       id: "1",
@@ -82,6 +83,7 @@ function App() {
         <h1>Ja<span style={{color: "#ffccff"}}>mmm</span>ing</h1>
       </header>
       <main>
+        <button id="login-button" onClick={currentToken.access_token ? logoutClick : loginWithSpotifyClick}>{currentToken.access_token ? userName + " Logout" : "Login with Spotify"}  </button>
         <SearchBar setSearchWords={setSearchWords} />
         <div className="row">
           <div className="column">
