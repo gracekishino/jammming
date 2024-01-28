@@ -30,7 +30,6 @@ function App() {
       <main>
         
         <button id="login-button" onClick={userName ? logoutClick : loginWithSpotifyClick}>
-          <img className="user-icon" src={images.length > 0 ? images[0].url : ""} alt={userName} />
           {userName ? userName + " Logout" : "Login with Spotify"}
         </button>
         <SearchBar getTracks={getTracks} setTracks={setTracks} />
