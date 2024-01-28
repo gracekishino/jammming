@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const clientId = '0a704d21dc6c41429775feb53272a67c'; // your clientId
 const redirectUrl = 'http://localhost:3000';        // your redirect URL - must be localhost URL and/or HTTPS
 
@@ -131,11 +129,6 @@ async function getUserData() {
   return await response.json();
 }
 
-// If we have a token, we're logged in, so fetch user data
-if (currentToken.access_token) {
-    const userData = await getUserData();
-  }
-
 // Click handlers
 async function loginWithSpotifyClick() {
     await redirectToSpotifyAuthorize();
@@ -150,4 +143,4 @@ async function logoutClick() {
 //   const token = await refreshToken();
 //   currentToken.save(token);
 // }
-export { loginWithSpotifyClick, logoutClick, currentToken, userName };
+export { loginWithSpotifyClick, logoutClick, userName };
