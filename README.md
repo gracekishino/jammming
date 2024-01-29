@@ -11,7 +11,7 @@ Use [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to 
 
 From the command line, navigate to the project directory and run:
 
-### npm install
+### `npm install``
 
 ## Usage
 
@@ -35,8 +35,6 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.
 
 ## License
 
