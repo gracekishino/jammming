@@ -15,13 +15,13 @@ From the command line, navigate to the project directory and run:
 
 ## Usage
 
-To run the app in development mode, in `src/util/Spotify.js` update `clientId` to be your Spotify Client ID and `redirectUrl` to be `http://localhost:3000`.
+To run the app in development mode, in `src/util/Spotify.js` update `clientId` to be your Spotify Client ID and `redirectUrl` to be "http://localhost:3000".
 
 Then, in the project directory, you can run:
 
 ### `npm start`
 
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open http://localhost:3000 to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
