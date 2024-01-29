@@ -110,22 +110,6 @@ async function getToken(code) {
   return await response.json();
 }
 
-// async function refreshToken() {
-//   const response = await fetch(tokenEndpoint, {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/x-www-form-urlencoded'
-//     },
-//     body: new URLSearchParams({
-//       client_id: clientId,
-//       grant_type: 'refresh_token',
-//       refresh_token: currentToken.refresh_token
-//     }),
-//   });
-
-//   return await response.json();
-// }
-
 async function getUserData() {
   const response = await fetch("https://api.spotify.com/v1/me", {
     method: 'GET',
@@ -177,8 +161,4 @@ async function logoutClick() {
   window.location.href = redirectUrl;
 }
 
-// async function refreshTokenClick() {
-//   const token = await refreshToken();
-//   currentToken.save(token);
-// }
 export { loginWithSpotifyClick, logoutClick, userName, images, getTracks, createPlaylist, addTracksToPlaylist };

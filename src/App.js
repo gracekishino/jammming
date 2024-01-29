@@ -27,28 +27,35 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Ja<span style={{color: "#ffccff"}}>mmm</span>ing</h1>
+        <h1>Ja<span className="pink">mmm</span>ing</h1>
       </header>
       <main>
-        
-        <button id="login-button" onClick={userName ? logoutClick : loginWithSpotifyClick}>
-          {images ? <img className="user-icon" src={images.length > 0 ? images[0].url : ""} alt={userName} /> : "" }
-          {userName ? userName + " Logout" : "Login with Spotify"}
-        </button>
-        <SearchBar getTracks={getTracks} setTracks={setTracks} />
-        <div className="row">
-          <div className="column">
-            <SearchResults tracks={tracks} addTrack={addTrack} />
-          </div>
-          <div className="column">
-            <Playlist 
-              playlist={playlist} 
-              setPlaylist={setPlaylist} 
-              createPlaylist={createPlaylist} 
-              removeTrack={removeTrack} 
-              addTracksToPlaylist={addTracksToPlaylist} />
-          </div>
-        </div>
+        {userName ? (
+          <>
+            <button id="login-button" onClick={logoutClick}>
+              <img className="user-icon" src={images.length > 0 && images[0].url} alt={userName} />
+              {userName + " Logout"}
+            </button>
+            <SearchBar getTracks={getTracks} setTracks={setTracks} />
+            <div className="row">
+              <div className="column">
+                <SearchResults tracks={tracks} addTrack={addTrack} />
+              </div>
+              <div className="column">
+                <Playlist 
+                  playlist={playlist} 
+                  setPlaylist={setPlaylist} 
+                  createPlaylist={createPlaylist} 
+                  removeTrack={removeTrack} 
+                  addTracksToPlaylist={addTracksToPlaylist} />
+              </div>
+            </div>
+          </>
+        ) : (
+          <button id="logout-button" onClick={loginWithSpotifyClick}>
+            Login with Spotify
+          </button>
+          )}
       </main>
       <footer>
         Created by <a href="https://github.com/gracekishino" target="blank">Grace Kishino</a>
