@@ -15,7 +15,7 @@ From the command line, navigate to the project directory and run:
 
 ## Usage
 
-To run the app in development mode, in `src/util/Spotify.js` update `clientId` to be your Spotify Client ID and `redirectUrl` to be "http://localhost:3000".
+To run the app in development mode, in `src/util/Spotify.js` update `clientId` to be your Spotify Client ID and `redirectUrl` to be 'http://localhost:3000'.
 
 Then, in the project directory, you can run:
 
