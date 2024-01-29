@@ -9,11 +9,9 @@ This project was created using [Create React App](https://github.com/facebook/cr
 
 Use [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to install.
 
-From the command line navigate to the project directory and run:
+From the command line, navigate to the project directory and run:
 
-```bash
-npm install
-```
+### npm install
 
 ## Usage
 
