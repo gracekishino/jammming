@@ -1,6 +1,6 @@
 const clientId = '0a704d21dc6c41429775feb53272a67c';
-const redirectUrl = 'https://jammmmmming.netlify.app/'; 
-// const redirectUrl = 'http://localhost:3000';        
+// const redirectUrl = 'https://jammmmmming.netlify.app/'; 
+const redirectUrl = 'http://localhost:3000';        
 
 const authorizationEndpoint = "https://accounts.spotify.com/authorize";
 const tokenEndpoint = "https://accounts.spotify.com/api/token";
