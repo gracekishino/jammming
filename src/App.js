@@ -1,9 +1,12 @@
+
+import { useState } from 'react';
+import './styles/App.css';
+
 import SearchBar from './components/SearchBar';
 import SearchResults from './components/SearchResults';
 import Playlist from './components/Playlist';
-import { loginWithSpotifyClick, logoutClick, userName, images, getTracks, createPlaylist, addTracksToPlaylist } from './components/SpotifyApiAccess';
-import './styles/App.css';
-import { useState } from 'react';
+import { loginWithSpotifyClick, logoutClick, userName, images, getTracks, createPlaylist, addTracksToPlaylist } from './util/Spotify';
+
 
 function App() {
 

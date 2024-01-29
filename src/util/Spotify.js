@@ -1,10 +1,11 @@
-const clientId = '0a704d21dc6c41429775feb53272a67c'; // your clientId
-const redirectUrl = 'https://jammmmmming.netlify.app/';        // your redirect URL - must be localhost URL and/or HTTPS
-// const redirectUrl = 'http://localhost:3000';        // your redirect URL - must be localhost URL and/or HTTPS
+const clientId = '0a704d21dc6c41429775feb53272a67c';
+const redirectUrl = 'https://jammmmmming.netlify.app/'; 
+// const redirectUrl = 'http://localhost:3000';        
 
 const authorizationEndpoint = "https://accounts.spotify.com/authorize";
 const tokenEndpoint = "https://accounts.spotify.com/api/token";
 const scope = 'user-read-private playlist-modify-private playlist-modify-public';
+
 let userName = '';
 let userId = '';
 let images = [];
