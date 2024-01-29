@@ -11,7 +11,7 @@ Use [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to 
 
 From the command line, navigate to the project directory and run:
 
-### `npm install``
+### `npm install`
 
 ## Usage
 
