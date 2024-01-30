@@ -28,7 +28,11 @@ function App() {
     setPlaylistTracks((playlistTracks) => playlistTracks.filter((track) => track.id !== trackIdToRemove));
   }
 
-  const savePlaylist = () => {
+  const savePlaylist = () => {    
+    if (!playlistName || !playlistTracks.length) {
+      // TODO show message saying enter name or add tracks
+      return;
+    }
     const uris = playlistTracks.map(track => track.uri);
     createPlaylist(playlistName, uris);
     setPlaylistName('New PLaylist');
