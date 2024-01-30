@@ -52,7 +52,7 @@ if (currentToken.access_token) {
   userId = userData.id;
   userName = userData.display_name;
   const images = await userData.images;
-  if (images.length > 0) {
+  if (images && images.length > 0) {
     userImageUrl = userData.images[0].url;
   } 
 }
