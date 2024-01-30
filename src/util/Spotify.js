@@ -156,4 +156,4 @@ async function logoutClick() {
   window.location.href = redirectUrl;
 }
 
-export { loginWithSpotifyClick, logoutClick, userName, userImageUrl, getTracks, createPlaylist, addTracksToPlaylist };
+export { loginWithSpotifyClick, logoutClick, userName, userImageUrl, getTracks, createPlaylist };
