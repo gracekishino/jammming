@@ -51,7 +51,10 @@ if (currentToken.access_token) {
   const userData = await getUserData();
   userId = userData.id;
   userName = userData.display_name;
-  userImageUrl = userData.images[0].url;
+  const images = userData.images;
+  if (images.length > 0) {
+    userImageUrl = userData.images[0].url;
+  } 
 }
 
 // Otherwise we're not logged in
