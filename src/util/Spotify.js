@@ -6,9 +6,9 @@ const authorizationEndpoint = "https://accounts.spotify.com/authorize";
 const tokenEndpoint = "https://accounts.spotify.com/api/token";
 const scope = 'user-read-private playlist-modify-private playlist-modify-public';
 
-let userName = '';
 let userId = '';
-let images = [];
+let userName = '';
+let userImageUrl = '';
 
 // Data structure that manages the current active token, caching it in localStorage
 const currentToken = {
@@ -49,9 +49,9 @@ if (code) {
 // If we have a token, we're logged in, so fetch user data
 if (currentToken.access_token) {
   const userData = await getUserData();
-  userName = userData.display_name;
   userId = userData.id;
-  images = userData.images;
+  userName = userData.display_name;
+  userImageUrl = userData.images[0].url;
 }
 
 // Otherwise we're not logged in
@@ -128,27 +128,22 @@ async function getTracks(query) {
     return await response.json();
 }
 
-async function createPlaylist(playlistName) {
-    const response = await fetch("https://api.spotify.com/v1/users/"+userId+"/playlists", {
-        method: 'POST',
-        headers: { 'Authorization': 'Bearer ' + currentToken.access_token },
-        body: JSON.stringify({
-            name: playlistName,
-            description: 'Created with the Jammming App!',
-            public: true
-        }),
-    });
-
-    return await response.json();
-}
-
-async function addTracksToPlaylist(playlistId,uris) {
-    const response = await fetch("https://api.spotify.com/v1/playlists/"+playlistId+"/tracks?uris="+uris, {
-        method: 'POST',
-        headers: { 'Authorization': 'Bearer ' + currentToken.access_token },
-    });
-
-    return await response.json();
+async function createPlaylist(playlistName, uris) {
+  const response = await fetch("https://api.spotify.com/v1/users/"+userId+"/playlists", {
+      method: 'POST',
+      headers: { 'Authorization': 'Bearer ' + currentToken.access_token },
+      body: JSON.stringify({
+          name: playlistName,
+          description: 'Created with the Jammming App!',
+          public: true
+      }),
+  });
+  const newPlaylist = await response.json();
+  const nextResponse = await fetch("https://api.spotify.com/v1/playlists/"+newPlaylist.id+"/tracks?uris="+uris, {
+    method: 'POST',
+    headers: { 'Authorization': 'Bearer ' + currentToken.access_token },
+  });
+  return await nextResponse.json();
 }
 
 // Click handlers
@@ -161,4 +156,4 @@ async function logoutClick() {
   window.location.href = redirectUrl;
 }
 
-export { loginWithSpotifyClick, logoutClick, userName, images, getTracks, createPlaylist, addTracksToPlaylist };
+export { loginWithSpotifyClick, logoutClick, userName, userImageUrl, getTracks, createPlaylist, addTracksToPlaylist };

@@ -1,28 +1,40 @@
-
 import { useState } from 'react';
 import './styles/App.css';
 
 import SearchBar from './components/SearchBar';
 import SearchResults from './components/SearchResults';
 import Playlist from './components/Playlist';
-import { loginWithSpotifyClick, logoutClick, userName, images, getTracks, createPlaylist, addTracksToPlaylist } from './util/Spotify';
-
+import { loginWithSpotifyClick, logoutClick, userName, userImageUrl, getTracks, createPlaylist } from './util/Spotify';
 
 function App() {
 
-  const [tracks, setTracks] = useState([]);
-  const [playlist, setPlaylist] = useState([]);
+  const [searchTracks, setSearchTracks] = useState([]);
+  const [playlistTracks, setPlaylistTracks] = useState([]);
+  const [playlistName, setPlaylistName] = useState('New Playlist');
   
+  const search = (query) => {
+    getTracks(query).then(jsonResponse => {
+      setSearchTracks(jsonResponse.tracks.items);
+    });
+  }
+
   const addTrack = (track) => {
-    // TODO only add if track not in playlist
-    if (!playlist.find(t => t.id === track.id)) {
-      setPlaylist((playlist) => [track, ...playlist]);
+    if (!playlistTracks.find(t => t.id === track.id)) {
+      setPlaylistTracks((playlistTracks) => [...playlistTracks, track]);
     }
   }
 
   const removeTrack = (trackIdToRemove) => {
-    setPlaylist((playlist) => playlist.filter((track) => track.id !== trackIdToRemove));
+    setPlaylistTracks((playlistTracks) => playlistTracks.filter((track) => track.id !== trackIdToRemove));
   }
+
+  const savePlaylist = () => {
+    const uris = playlistTracks.map(track => track.uri);
+    createPlaylist(playlistName, uris);
+    setPlaylistName('New PLaylist');
+    setPlaylistTracks([]);
+    // TODO add message rather than alert('[' + text + '] playlist created!');
+  };
 
   return (
     <div className="App">
@@ -32,27 +44,25 @@ function App() {
       <main>
         {userName ? (
           <>
-            <button id="login-button" onClick={logoutClick}>
-              <img className="user-icon" src={images.length > 0 && images[0].url} alt={userName} />
+            <button id="logout-button" onClick={logoutClick}>
+              {userImageUrl && <img className="user-icon" src={userImageUrl} alt={userName} />}
               {userName + " Logout"}
             </button>
-            <SearchBar getTracks={getTracks} setTracks={setTracks} />
+            <SearchBar onSearch={search} />
             <div className="row">
-              <div className="column">
-                <SearchResults tracks={tracks} addTrack={addTrack} />
-              </div>
-              <div className="column">
+                <SearchResults 
+                  searchTracks={searchTracks} 
+                  onAdd={addTrack} />
                 <Playlist 
-                  playlist={playlist} 
-                  setPlaylist={setPlaylist} 
-                  createPlaylist={createPlaylist} 
-                  removeTrack={removeTrack} 
-                  addTracksToPlaylist={addTracksToPlaylist} />
-              </div>
+                  playlistTracks={playlistTracks} 
+                  playlistName={playlistName} 
+                  onNameChange={setPlaylistName} 
+                  onSave={savePlaylist} 
+                  onRemove={removeTrack} />
             </div>
           </>
         ) : (
-          <button id="logout-button" onClick={loginWithSpotifyClick}>
+          <button id="login-button" onClick={loginWithSpotifyClick}>
             Login with Spotify
           </button>
           )}
@@ -62,6 +72,6 @@ function App() {
       </footer>
     </div>
   );
-}
+};
 
 export default App;

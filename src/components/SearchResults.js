@@ -1,11 +1,11 @@
 import Tracklist from './Tracklist';
 
-function SearchResults({ tracks, addTrack }) {
+function SearchResults({ searchTracks, onAdd }) {
 
     return (
-        <div>
+        <div className="column">
             <h2>Song Results</h2>
-            <Tracklist tracks={tracks} addTrack={addTrack} icon="+" />
+            <Tracklist tracks={searchTracks} onAdd={onAdd} action="+" />
         </div>
     );
 };

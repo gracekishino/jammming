@@ -1,8 +1,8 @@
 import styles from '../styles/Track.module.css'; 
 
-function Track({ icon, track, addTrack, removeTrack }) {
+function Track({ action, track, onAdd, onRemove }) {
     const handleClick = () => {
-        icon === '+' ? addTrack(track) : removeTrack(track.id)
+        action === '+' ? onAdd(track) : onRemove(track.id)
     }
     
     return (
@@ -12,7 +12,7 @@ function Track({ icon, track, addTrack, removeTrack }) {
                 <div>{track.artists[0].name}</div>
             </div>
             <div className={styles.songAction}>
-                <button onClick={handleClick} className={styles.icon}>{icon}</button>
+                <button onClick={handleClick} className={styles.icon}>{action}</button>
             </div>
         </div>
     );
