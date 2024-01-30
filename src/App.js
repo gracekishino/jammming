@@ -66,10 +66,15 @@ function App() {
             </div>
           </>
         ) : (
-          <button id="login-button" onClick={loginWithSpotifyClick}>
-            Login with Spotify
-          </button>
-          )}
+            <div style={{display: 'block', padding: '30px', background: '#000', width: '70%', margin: 'auto', maxWidth: '270px'}}>
+              <button id="login-button" onClick={loginWithSpotifyClick}>
+                Login with Spotify
+              </button>
+              <br /><br />
+              <a href="https://gracekishino.github.io/#contact" target="blank">Let me know</a> if you'd like to try this out as your Spotify <br /> 
+              account needs to be granted access to be able to login.
+            </div>
+        )}
       </main>
       <footer>
         Created by <a href="https://github.com/gracekishino" target="blank">Grace Kishino</a>
