@@ -20,7 +20,7 @@ function SearchBar({ onSearch }) {
     <div>
         <input 
           placeholder="Search for songs" 
-          arai-label="Search for songs" 
+          aria-label="Search for songs" 
           onChange={handleQueryChange}
           className={styles.searchText} />
         <button onClick={doSearch}>Search</button>
